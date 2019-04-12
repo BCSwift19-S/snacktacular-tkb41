@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		212EEFF4226124C100A68A24 /* round-to.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212EEFF3226124C100A68A24 /* round-to.swift */; };
+		212EEFF62261299F00A68A24 /* UIView add border.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212EEFF52261299F00A68A24 /* UIView add border.swift */; };
 		215E873C224BEB23000C247F /* Spot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215E873B224BEB23000C247F /* Spot.swift */; };
 		215E873E224BED7C000C247F /* Spots.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215E873D224BED7C000C247F /* Spots.swift */; };
 		2185927B224C519C0043F860 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2185927A224C519C0043F860 /* GoogleService-Info.plist */; };
@@ -23,6 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		212EEFF3226124C100A68A24 /* round-to.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "round-to.swift"; sourceTree = "<group>"; };
+		212EEFF52261299F00A68A24 /* UIView add border.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView add border.swift"; sourceTree = "<group>"; };
 		215E873B224BEB23000C247F /* Spot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spot.swift; sourceTree = "<group>"; };
 		215E873D224BED7C000C247F /* Spots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spots.swift; sourceTree = "<group>"; };
 		2185927A224C519C0043F860 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -83,6 +87,8 @@
 				3E0F960B2065A17500AE450D /* SpotDetailViewController.swift */,
 				3E0F960D2065AB6400AE450D /* SpotReviewsTableViewCell.swift */,
 				3E0F960F2065AC1A00AE450D /* SpotPhotosCollectionViewCell.swift */,
+				212EEFF3226124C100A68A24 /* round-to.swift */,
+				212EEFF52261299F00A68A24 /* UIView add border.swift */,
 				3E8390E3206597F600512DEA /* Main.storyboard */,
 				3E8390E6206597F600512DEA /* Assets.xcassets */,
 				3E8390E8206597F600512DEA /* LaunchScreen.storyboard */,
@@ -304,6 +310,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				212EEFF62261299F00A68A24 /* UIView add border.swift in Sources */,
 				3E8390E2206597F600512DEA /* SpotsListViewController.swift in Sources */,
 				3E0F96102065AC1A00AE450D /* SpotPhotosCollectionViewCell.swift in Sources */,
 				3E0F960C2065A17500AE450D /* SpotDetailViewController.swift in Sources */,
@@ -312,6 +319,7 @@
 				215E873C224BEB23000C247F /* Spot.swift in Sources */,
 				3E8390E0206597F600512DEA /* AppDelegate.swift in Sources */,
 				215E873E224BED7C000C247F /* Spots.swift in Sources */,
+				212EEFF4226124C100A68A24 /* round-to.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

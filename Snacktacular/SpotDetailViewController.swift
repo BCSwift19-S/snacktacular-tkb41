@@ -19,6 +19,8 @@ class SpotDetailViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var saveBarButton: UIBarButtonItem!
+    @IBOutlet weak var cancelBarButton: UIBarButtonItem!
     
     var spot: Spot!
     let regionDistance: CLLocationDistance = 750 //750m or around a half mile
@@ -28,11 +30,26 @@ class SpotDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
+        tap.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tap)
 //        mapView.delegate = self
         
         if spot == nil {
             spot = Spot()
             getLocation()
+            nameField.addBorder(width: 0.5, radius: 5.0, color: .black)
+            addressField.addBorder(width: 0.5, radius: 5.0, color: .black)
+        } else {
+            nameField.isEnabled = false
+            addressField.isEnabled = false
+            nameField.backgroundColor = UIColor.clear
+            addressField.backgroundColor = UIColor.white
+            // "Save" and "Cancel" buttons should be hidden
+            saveBarButton.title = ""
+            cancelBarButton.title = ""
+            // Hide Toolbar so that "Lookup Place" isn't available
+            navigationController?.setToolbarHidden(true, animated: true)
         }
         
         let region = MKCoordinateRegion(center: spot.coordinate, latitudinalMeters: regionDistance, longitudinalMeters: regionDistance)
@@ -40,9 +57,28 @@ class SpotDetailViewController: UIViewController {
         updateUserInterface()
         
     }
+    
+    @IBAction func textFieldEditingChanged(_ sender: UITextField) {
+        saveBarButton.isEnabled = !(nameField.text == "")
+    }
+    
+    @IBAction func textFeildReturnPressed(_ sender: UITextField) {
+        sender.resignFirstResponder()
+        spot.name = nameField.text!
+        spot.address = addressField.text!
+        updateUserInterface()
+    }
+    
+    
         func updateUserInterface() {
             nameField.text = spot.name
             addressField.text = spot.address
+    }
+    func showAlert(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(alertAction)
+        present(alertController, animated: true, completion: nil)
     }
     func updateMap() {
         mapView.removeAnnotations(mapView.annotations)
