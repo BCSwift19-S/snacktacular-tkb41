@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		212EEFF4226124C100A68A24 /* round-to.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212EEFF3226124C100A68A24 /* round-to.swift */; };
 		212EEFF62261299F00A68A24 /* UIView add border.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212EEFF52261299F00A68A24 /* UIView add border.swift */; };
+		212EEFF82266316200A68A24 /* ReviewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212EEFF72266316200A68A24 /* ReviewTableViewController.swift */; };
+		212EEFFA22679A4200A68A24 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212EEFF922679A4200A68A24 /* Review.swift */; };
+		212EEFFC22679F6100A68A24 /* Reviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212EEFFB22679F6100A68A24 /* Reviews.swift */; };
+		212EEFFE2267A31800A68A24 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212EEFFD2267A31800A68A24 /* Photo.swift */; };
+		212EF0002267A34B00A68A24 /* Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212EEFFF2267A34B00A68A24 /* Photos.swift */; };
 		215E873C224BEB23000C247F /* Spot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215E873B224BEB23000C247F /* Spot.swift */; };
 		215E873E224BED7C000C247F /* Spots.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215E873D224BED7C000C247F /* Spots.swift */; };
 		2185927B224C519C0043F860 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2185927A224C519C0043F860 /* GoogleService-Info.plist */; };
@@ -27,6 +32,11 @@
 /* Begin PBXFileReference section */
 		212EEFF3226124C100A68A24 /* round-to.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "round-to.swift"; sourceTree = "<group>"; };
 		212EEFF52261299F00A68A24 /* UIView add border.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView add border.swift"; sourceTree = "<group>"; };
+		212EEFF72266316200A68A24 /* ReviewTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTableViewController.swift; sourceTree = "<group>"; };
+		212EEFF922679A4200A68A24 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
+		212EEFFB22679F6100A68A24 /* Reviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reviews.swift; sourceTree = "<group>"; };
+		212EEFFD2267A31800A68A24 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		212EEFFF2267A34B00A68A24 /* Photos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photos.swift; sourceTree = "<group>"; };
 		215E873B224BEB23000C247F /* Spot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spot.swift; sourceTree = "<group>"; };
 		215E873D224BED7C000C247F /* Spots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spots.swift; sourceTree = "<group>"; };
 		2185927A224C519C0043F860 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -90,6 +100,11 @@
 				212EEFF3226124C100A68A24 /* round-to.swift */,
 				212EEFF52261299F00A68A24 /* UIView add border.swift */,
 				3E8390E3206597F600512DEA /* Main.storyboard */,
+				212EEFF922679A4200A68A24 /* Review.swift */,
+				212EEFFD2267A31800A68A24 /* Photo.swift */,
+				212EEFFF2267A34B00A68A24 /* Photos.swift */,
+				212EEFF72266316200A68A24 /* ReviewTableViewController.swift */,
+				212EEFFB22679F6100A68A24 /* Reviews.swift */,
 				3E8390E6206597F600512DEA /* Assets.xcassets */,
 				3E8390E8206597F600512DEA /* LaunchScreen.storyboard */,
 				3E8390EB206597F600512DEA /* Info.plist */,
@@ -310,10 +325,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				212EEFFE2267A31800A68A24 /* Photo.swift in Sources */,
+				212EEFFC22679F6100A68A24 /* Reviews.swift in Sources */,
 				212EEFF62261299F00A68A24 /* UIView add border.swift in Sources */,
+				212EF0002267A34B00A68A24 /* Photos.swift in Sources */,
 				3E8390E2206597F600512DEA /* SpotsListViewController.swift in Sources */,
 				3E0F96102065AC1A00AE450D /* SpotPhotosCollectionViewCell.swift in Sources */,
 				3E0F960C2065A17500AE450D /* SpotDetailViewController.swift in Sources */,
+				212EEFF82266316200A68A24 /* ReviewTableViewController.swift in Sources */,
+				212EEFFA22679A4200A68A24 /* Review.swift in Sources */,
 				3E0F960E2065AB6400AE450D /* SpotReviewsTableViewCell.swift in Sources */,
 				3E0F960A20659D9000AE450D /* SpotsTableViewCell.swift in Sources */,
 				215E873C224BEB23000C247F /* Spot.swift in Sources */,
