@@ -25,12 +25,11 @@ class SpotDetailViewController: UIViewController {
     var spot: Spot!
     var reviews: Reviews!
     var photos: Photos!
-    var imagePicker = UIImagePickerController()
-    let regionDistance: CLLocationDistance = 750 //750m or around a half mile
+    let regionDistance: CLLocationDistance = 750 // 750 meters, or about a half mile
     var locationManager: CLLocationManager!
     var currentLocation: CLLocation!
-  
-
+    var imagePicker = UIImagePickerController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
@@ -98,7 +97,22 @@ class SpotDetailViewController: UIViewController {
             print("Error")
         }
     }
-    
+    func saveCancelAlert(title: String, message: String, segueIdentifier: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let saveAction = UIAlertAction(title: "Save", style: .default) { (_) in
+            self.spot.saveData { success in
+                self.saveBarButton.title = "Done"
+                self.cancelBarButton.title = ""
+                self.navigationController?.setToolbarHidden(true, animated: true)
+                self.disableTextEditing()
+                if segueIdentifier == "AddReview" {
+                    self.performSegue(withIdentifier: segueIdentifier, sender: nil)
+                } else {
+                    self.cameraOrLibraryAlert()
+                }
+            }
+        }
+    }
     
     
     
@@ -159,10 +173,19 @@ class SpotDetailViewController: UIViewController {
     }
 
     @IBAction func photoButtonPressed(_ sender: UIButton) {
-         cameraOrLibraryAlert()
+        if spot.documentID == "" {
+            saveCancelAlert(title: "This Venue Has Not Been Saved", message: "You must save theis venue before you can add a photo.", segueIdentifier: "AddPhoto")
+        } else {
+            cameraOrLibraryAlert()
+        }
     }
     
     @IBAction func reviewButtonPressed(_ sender: UIButton) {
+        if spot.documentID == "" {
+            saveCancelAlert(title: "This Venue Has Not Been Saved", message: "You must save  the place before you can review it.", segueIdentifier: "AddReview")
+        } else {
+            performSegue(withIdentifier: "AddReview", sender: nil)
+        }
     }
     
     @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
@@ -306,13 +329,17 @@ extension SpotDetailViewController: UICollectionViewDelegate, UICollectionViewDa
 }
 extension SpotDetailViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
         let photo = Photo()
-        photo.image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
-        photos.photoArray.append(photo)
+        photo.image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+        
         dismiss(animated: true) {
-            self.collectionView.reloadData()
+            photo.saveData(spot: self.spot) { (success) in
+            }
         }
+        
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
